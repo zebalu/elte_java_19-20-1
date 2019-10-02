@@ -75,7 +75,6 @@ public class Transfer {
 	 * @return boolean true, ha az átutalás a múltban történt
 	 */
 	public boolean isDone() {
-		System.out.println(date+"\t"+System.currentTimeMillis());
 		return date < System.currentTimeMillis();
 	}
 	

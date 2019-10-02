@@ -35,11 +35,7 @@ public class Summary {
 		String line = null;
 		while((line = reader.readLine())!=null) {
 			String[] parts = line.split(" ");
-			Transfer t = new Transfer(
-			    parts[0], parts[1],
-				Long.parseLong(parts[2]),
-				Integer.parseInt(parts[3])
-			);
+			Transfer t = new Transfer(parts[0], parts[1], Long.parseLong(parts[2]), Integer.parseInt(parts[3]));
 			transferList.add(t);
 		}
 		return transferList;

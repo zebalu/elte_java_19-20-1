@@ -1,0 +1,1 @@
+a feladatot kiegészítettem ném javadoc-kal, és a hozzá tartozó fordító/futtató utasításokkal

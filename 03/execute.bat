@@ -1,0 +1,1 @@
+java -cp out bank.Summary almafa.txt
