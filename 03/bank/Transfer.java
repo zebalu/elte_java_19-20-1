@@ -3,7 +3,7 @@ package bank;
 public class Transfer {
 	private final String from;
 	private final String to;
-	private final long date;
+	private long date;
 	private final int amount;
 	public Transfer(
 	    String from,
@@ -26,5 +26,29 @@ public class Transfer {
 		this.to=to;
 		this.date=date;
 		this.amount=amount;
+	}
+	
+	public int getAmount() {
+		return amount;
+	}
+	
+	public long getDate() {
+		return date;
+	}
+	
+	public void setDate(long date) {
+		if(date<=0) {
+			throw new IllegalArgumentException("Negative numbers");
+		}
+		this.date=date;
+	}
+	
+	public boolean isDone() {
+		System.out.println(date+"\t"+System.currentTimeMillis());
+		return date < System.currentTimeMillis();
+	}
+	
+	public String getTarget() {
+		return to;
 	}
 }
