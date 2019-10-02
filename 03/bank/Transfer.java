@@ -19,11 +19,11 @@ public class Transfer {
 	
 	/** A konstruktor hozza létre az objektumot, és állítja be a kezdeti értékeket.
 	 *  Ebben az objektumban csak az átutlás dátuma változtatható a jövőben.
-	 * @param String from a forrásszámla, 24 karakteres String
-	 * @param String to a célszámla, 24 karakteres String
-	 * @param long date poziív szám, mely az 
+	 * @param from a forrásszámla, 24 karakteres String
+	 * @param to a célszámla, 24 karakteres String
+	 * @param date poziív szám, mely az 
 	 *        1970.01.01 00:00:00.000 -óta eltelt milliszekundomok száma
-	 * @param int amount az átutalás összege, pozitív szám
+	 * @param amount az átutalás összege, pozitív szám
 	 */
 	public Transfer(String from, String to, long date, int amount) {
 		Transfer.validateParams(from, to, date, amount);
@@ -62,7 +62,7 @@ public class Transfer {
 	}
 	
 	/** Beállítja az átutalás idejét.
-	 * @param long date 1970.01.01 00:00:00.000 -óta eltelt milliszekundomok száma
+	 * @param date az 1970.01.01 00:00:00.000 -óta eltelt milliszekundomok száma
 	 */
 	public void setDate(long date) {
 		if(date<=0) {
