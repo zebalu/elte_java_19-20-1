@@ -12,6 +12,9 @@ import java.util.HashMap;
 public class Summary {
 	
 	public static void main(String[] args) throws Exception {
+		if(args.length != 1) {
+			throw new IllegalAccessException("This class requires exactly 1 argument which is a file name.");
+		}
 		File f = new File(args[0]);
 		FileReader fr = new FileReader(f);
 		BufferedReader br = new BufferedReader(fr);
