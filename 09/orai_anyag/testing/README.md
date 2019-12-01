@@ -1,0 +1,1 @@
+created with command: `gradle init --type=java-application`
