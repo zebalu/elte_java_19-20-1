@@ -32,34 +32,73 @@ azt a felügyelőknek kell jelezni, *NEM* a diáktársaknak!
 
 \section{Feladat leírás}
 
-Készítsük el az Egyesült Prognyelvek községnek a parlamenti választórendszerét. Az elkészített osztályokat helyezzük a \textit{valasztas} csomagba, és hozzunk létre minden osztálynak egy külön fordítási egységet. \\
+Készítsük el az Egyesült Prognyelvek községnek a parlamenti választórendszerét. 
+Az elkészített osztályokat helyezzük a \textit{valasztas} csomagba, és hozzunk 
+létre minden osztálynak egy külön fordítási egységet. \\
  
-A szavazó polgárokról nyilván tartjuk a nevüket (karakterlánc), azonosítójuk (karakterlánc) életkorukat (egész szám, mely nem lehet negatív), országkódjukat (egész szám). A polgárok adattagjai legyenek publikusan lekérdezhetőek és beállíthatóak. Hozzunk létre egy publikus konstruktort az osztálynak, mely beállítja a kezdeti adattagokat \\ 
-A szavazó polgárok három különböző pártok szavazhatnak (Felsorolási típus: JavaHősök, CppFanok, HaskellMágusok). \\
+A szavazó polgárokról nyilván tartjuk a nevüket (karakterlánc), 
+azonosítójuk (karakterlánc) életkorukat (egész szám, mely nem lehet negatív), 
+országkódjukat (egész szám). A polgárok adattagjai legyenek publikusan 
+lekérdezhetőek és beállíthatóak. Hozzunk létre egy publikus konstruktort az 
+osztálynak, mely beállítja a kezdeti adattagokat \\ 
+A szavazó polgárok három különböző pártok szavazhatnak 
+(Felsorolási típus: JavaHősök, CppFanok, HaskellMágusok). \\
 
 \begin{enumerate}
 
 
-\item Kettes szerint: A pártokra egy szavazórendszeren keresztül szavazhatnak, ahol nyilván tartjuk a leadott szavazatokat. A leadott szavazatokat egy \textit{ArrayList} adatszerkezetben tartsuk nyilván, ennek megfelelően nevezzük el \textit{ArraySzavazorendszer}-nek az osztályunkat.
+\item Kettes szerint: A pártokra egy szavazórendszeren keresztül szavazhatnak, 
+ahol nyilván tartjuk a leadott szavazatokat. A leadott szavazatokat egy 
+\textit{ArrayList} adatszerkezetben tartsuk nyilván, ennek megfelelően nevezzük 
+el \textit{ArraySzavazorendszer}-nek az osztályunkat.
 
 \textit{ArraySzavazorendszer} publikus metódusai a következők:
 \begin{itemize}
-\item \textit{szavaz}: Paraméterként a szavazópolgárt, valamint egy pártot vár. Bejegyez egy új szavazatot a megadott pátra.
+\item \textit{szavaz}: Paraméterként a szavazópolgárt, valamint egy pártot vár. 
+Bejegyez egy új szavazatot a megadott pátra.
 \item \textit{osszSzavazat}: Megadja, hogy összesen eddig hány polgár szavazott.
 \item \textit{lezar}: Lezárja a szavazást, mely után már nem lehet szavazni.
-\item \textit{nyertes}: Visszaadja, melyik párt a nyertes. Ha a szavazás még nincs lezárva, dobjunk kivételt.
-\item \textit{hanySzavazat}: Egy pártot vár paraméterként, és megadja, hogy egy adott pártra összesen eddig hányan szavaztak. Ha a szavazás még nincs lezárva, dobjunk kivételt.
+\item \textit{nyertes}: Visszaadja, melyik párt a nyertes. Ha a szavazás még 
+nincs lezárva, dobjunk kivételt.
+\item \textit{hanySzavazat}: Egy pártot vár paraméterként, és megadja, hogy egy 
+adott pártra összesen eddig hányan szavaztak. Ha a szavazás még nincs lezárva, dobjunk kivételt.
 \end{itemize}
 
 
-\item Hármas szint: Hozzunk létre egy \textit{Azonosithato} interfészt, melynek legyen egy \textit{getKulcs} művelete, mely egy karakterlánccal tér vissza. A személyiségi jogok megőrzése érdekében módosítsuk a \textit{szavaz} függvényt úgy, hogy egy \textit{Azonosithato} típust várjon, így ne férjen hozzá a polgár minden adatához. A polgár ennek megfelelően valósítsa meg a \textit{getKulcs} műveletet úgy, hogy adja vissza saját azonosítójának és országkódjának a konkatenációját. Figyeljünk oda, hogy ugyanazon kulccsal ne lehessen leadni szavazatot. Ilyen kísérlet esetén dobjon a \textit{szavaz} függvény egy saját \textit{AlreadyVoted} kivételt, melytől le lehet kérdezni a kulcsot, amivel megkíséreltünk újra szavazni.
+\item Hármas szint: Hozzunk létre egy \textit{Azonosithato} interfészt, melynek 
+legyen egy \textit{getKulcs} művelete, mely egy karakterlánccal tér vissza. 
+A személyiségi jogok megőrzése érdekében módosítsuk a \textit{szavaz} függvényt 
+úgy, hogy egy \textit{Azonosithato} típust várjon, így ne férjen hozzá a polgár 
+minden adatához. A polgár ennek megfelelően valósítsa meg a \textit{getKulcs} 
+műveletet úgy, hogy adja vissza saját azonosítójának és országkódjának a 
+konkatenációját. Figyeljünk oda, hogy ugyanazon kulccsal ne lehessen leadni 
+szavazatot. Ilyen kísérlet esetén dobjon a \textit{szavaz} függvény egy saját 
+\textit{AlreadyVoted} kivételt, melytől le lehet kérdezni a kulcsot, amivel 
+megkíséreltünk újra szavazni.
 
-\item Négyes szint: A hatékonyság növelése hozzunk létre egy interfészt a \textit{Szavazorendszer}-nek, és készítsünk egy másik implementációt, melyben a szavazatokat egy \textit{HashMap}-ben (kulcs-érték párokat tartalmazó adatszerkezet) tároljuk. Ezt az implementációt nevezzük \textit{HashSzavazorendszer}-nek, mely implementálja a Szavazorendszer interfészt. Az eddig implementált \textit{ ArraySzavazorendszer}-t szintén valósítsa meg ezt az újonnan létrehozott interfészt.
+\item Négyes szint: A hatékonyság növelése hozzunk létre egy interfészt a 
+\textit{Szavazorendszer}-nek, és készítsünk egy másik implementációt, melyben 
+a szavazatokat egy \textit{HashMap}-ben (kulcs-érték párokat tartalmazó adatszerkezet) 
+tároljuk. Ezt az implementációt nevezzük \textit{HashSzavazorendszer}-nek, mely 
+implementálja a Szavazorendszer interfészt. Az eddig implementált 
+\textit{ ArraySzavazorendszer}-t szintén valósítsa meg ezt az újonnan létrehozott interfészt.
 
-\item Ötös szint: Az Azonosithato interfész legyen generikus, melynek típusparamétere a \textit{getKulcs} visszatérési értékének típusa legyen. Ennek megfelelően a \textit{Szavazórendszer} is legyen egy generikus interfész, annak implementációi pedig generikus osztályok, melyeknek az adatszerkezetükben tárolt kulcsainak típusa a típusparaméter legyen. Csináljuk egy \textit{PolgarKulcs} osztályt, mely tartalmaz egy azonosítót és országkódot, és ezzel a típusparaméterrel hozzuk létre a polgárokat és a szavazórendszereket. Érjük el, hogy tudjuk kulcsként használni ezt a típust az \textit{ArrayList} és \textit{HashMap}-en belül (ehhez írjuk felül az \textit{equals} és \textit{hashCode} függvényeit az alábbi szabály szerint: ha két objektum egyenlő egymással, akkor a \textit{hashCode} műveletüknek ugyanazzal a számmal kell visszatérnie).
+\item Ötös szint: Az Azonosithato interfész legyen generikus, melynek típusparamétere 
+a \textit{getKulcs} visszatérési értékének típusa legyen. Ennek megfelelően a
+\textit{Szavazórendszer} is legyen egy generikus interfész, annak implementációi 
+pedig generikus osztályok, melyeknek az adatszerkezetükben tárolt kulcsainak típusa 
+a típusparaméter legyen. Csináljuk egy \textit{PolgarKulcs} osztályt, mely tartalmaz 
+egy azonosítót és országkódot, és ezzel a típusparaméterrel hozzuk létre a polgárokat 
+és a szavazórendszereket. Érjük el, hogy tudjuk kulcsként használni ezt a típust az 
+\textit{ArrayList} és \textit{HashMap}-en belül (ehhez írjuk felül az \textit{equals}
+és \textit{hashCode} függvényeit az alábbi szabály szerint: ha két objektum egyenlő
+egymással, akkor a \textit{hashCode} műveletüknek ugyanazzal a számmal kell visszatérnie).
 
 \end{enumerate}
 
-A \textit{main} függvény hozzon létre három szavazópolgárt, és egy választási rendszert. Az első és a második polgár szavazzon a JavaHősök pátra, majd az első polgár próbáljon meg újra szavazni a CppFanokra. A harmadik személy szavazzon a HaskellMágusokra. Zárjuk le a szavazást, írjuk ki, hogy összesen hányan szavaztak, és hogy ki a nyertes párt.
+A \textit{main} függvény hozzon létre három szavazópolgárt, és egy választási rendszert.
+Az első és a második polgár szavazzon a JavaHősök pátra, majd az első polgár próbáljon
+meg újra szavazni a CppFanokra. A harmadik személy szavazzon a HaskellMágusokra. 
+Zárjuk le a szavazást, írjuk ki, hogy összesen hányan szavaztak, és hogy ki a nyertes párt.
 
 \end{document}
